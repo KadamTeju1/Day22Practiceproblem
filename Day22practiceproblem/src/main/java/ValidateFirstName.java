@@ -1,33 +1,35 @@
 import java.util.Scanner;
 
-public class ValidateFirstName {
+public class ValidateLastName {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter a valid first name: ");
-            String firstName = scanner.nextLine();
+            System.out.print("Enter a valid last name: ");
+            String lastName = scanner.nextLine();
 
-            if (isValidFirstName(firstName)) {
-                System.out.println("Valid first name: " + firstName);
+            if (isValidLastName(lastName)) {
+                System.out.println("Valid last name: " + lastName);
                 break;
             } else {
-                System.out.println("Invalid first name. Please try again.");
+                System.out.println("Invalid last name. Please try again.");
             }
         }
+
         scanner.close();
     }
 
-    public static boolean isValidFirstName(String firstName) {
-        // Check if the first name starts with a capital letter
-        if (!Character.isUpperCase(firstName.charAt(0))) {
+    public static boolean isValidLastName(String lastName) {
+        // Check if the last name starts with a capital letter
+        if (!Character.isUpperCase(lastName.charAt(0))) {
             return false;
         }
 
-        // Check if the first name has a minimum of 3 characters
-        if (firstName.length() < 3) {
+        // Check if the last name has a minimum of 3 characters
+        if (lastName.length() < 3) {
             return false;
         }
+
         return true;
     }
 }
