@@ -5,7 +5,7 @@ public class ValidatePassword {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter a valid password (minimum 8 characters and at least 1 uppercase letter): ");
+            System.out.print("Enter a valid password (minimum 8 characters, at least 1 uppercase letter, and at least 1 numeric digit): ");
             String password = scanner.nextLine();
 
             if (isValidPassword(password)) {
@@ -34,6 +34,15 @@ public class ValidatePassword {
             }
         }
 
-        return hasUppercase;
+        // Check if the password contains at least 1 numeric digit
+        boolean hasNumeric = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                hasNumeric = true;
+                break;
+            }
+        }
+
+        return hasUppercase && hasNumeric;
     }
 }
